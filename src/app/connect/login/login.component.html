@@ -1,0 +1,25 @@
+<div class=" container d-flex justify-content-center  " style="align-items: center; margin-bottom: 6.5rem;">
+    <div class="left p-2" >
+        <h1>Login Here to Access Service</h1>
+        <form >
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" #username>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" #password>
+            </div>
+            <button type="submit" class="btn btn-primary m-2" (click)="OnLoginClicked($event)" >Submit</button>
+            <br>
+            <small>Already have account ?</small> <a routerLink="/Signup"> Signup</a>
+        </form>
+    </div>
+    <div class="right p-2"  >
+        <img src="../../assets/images.jpg" alt="">
+    </div>
+</div>
+
+

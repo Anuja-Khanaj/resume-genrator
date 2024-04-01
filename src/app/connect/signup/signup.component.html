@@ -1,0 +1,92 @@
+<div class="d-flex my-4" style="gap: 7px;">
+    <div class="signup-form">
+        <form action="" class="form form-group" [formGroup]="reactiveForm" onsubmit="event.preventDefault()">
+            <div>
+                <div class="left">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" ngModel  formControlName="name">
+                    <small *ngIf="reactiveForm.get('name').invalid && reactiveForm.get('name').touched"> *required field </small>
+                    <br>
+                    <label for="username">Username</label>
+                    <input type="email" name="email" class="form-control" ngModel  formControlName="username">
+                    <small *ngIf="reactiveForm.get('username').invalid && reactiveForm.get('username').touched"> *required field </small>
+                    <br>
+                    <label for="pass">Password</label>
+                    <input type="password" name="pass" class="form-control" ngModel  formControlName="pass" #pass>
+                    <small *ngIf="reactiveForm.get('pass').invalid && reactiveForm.get('pass').touched"> *required field </small>
+                    <br>
+                    <label for="confirmPass">Confirm Password</label>
+                    <input type="password" name="confirmPass" class="form-control" ngModel  formControlName="confirmPass">
+                    <br>
+    
+                </div>
+                <div class="right">
+                    <div class="onee">
+                        <label for="">Are you student?</label>
+                        <br>
+                        <div class="type-radio">
+                            <div class="radio">
+                                <input type="radio" name="option" value="yes" ngModel  formControlName="student">
+                                <label type="radio" for="yes">Yes</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="option" value="no" ngModel  formControlName="student">
+                                <label type="radio" for="no">NO</label>
+                            </div> 
+                        </div> 
+                        <small *ngIf="reactiveForm.get('student').invalid && reactiveForm.get('student').touched"> *required field </small>
+                        <br>              
+                        <div class="dropdown">
+                            <label for="country"> In Which Country you're looking for a job?</label>
+                            <br>
+                            <select name="country" ngModel  formControlName="country">
+                                <option value="selectCoun" selected>Select</option>
+                                <option value="india">India</option>
+                                <option value="us">Us</option>
+                                <option value="germany">Germany</option>
+                                <option value="france">France</option>
+                            </select>
+                        </div>
+                        <small *ngIf="reactiveForm.get('country').invalid && reactiveForm.get('country').touched"> *required field </small>
+                    </div>
+                  <div class="two">
+                    <div class="dropdown">
+                        <label for="media"> In Which Country you're looking for a job?</label>
+                        <br>
+                        <select name="media" ngModel  formControlName="media">
+                            <option value="selectCoun" selected>Select</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Friend">Friend</option>
+                            
+                        </select>
+                    </div>
+                    <small *ngIf="reactiveForm.get('media').invalid && reactiveForm.get('media').touched"> *required field </small>
+                    <br>
+                   <label for="">Have you ever made resume?</label>
+                    <br>
+                    <div class="type-radio">
+                        <div class="radio">
+                            <input type="radio" name="ha" value="ha" ngModel  formControlName="pervResume">
+                            <label type="radio" for="yes" >Yes</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="na" value="na" ngModel  formControlName="pervResume">
+                            <label type="radio" for="no">NO</label>
+                        </div>
+                    </div>
+                    <small *ngIf="reactiveForm.get('pervResume').invalid && reactiveForm.get('pervResume').touched"> *required field </small>
+                  </div>
+                 
+                   
+                </div>
+                <br>
+                <button class="btn btn-outline-primary" type="submit" (click)="OnSignSubmit(reactiveForm.value)" [disabled]="reactiveForm.invalid">Submit</button> 
+                <br>
+                <small class="text-center">Already have account ? <a routerLink="/Login">Login</a> </small>
+                
+            </div>
+        </form>
+    </div>
+
+    <img src="../../../assets/two.png" alt="" srcset="">
+</div>

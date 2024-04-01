@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+    <a class="navbar-brand" routerlink="#" style="font-family:fantasy;">ResumeGen</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+     
+        <li class="nav-item">
+            <a class="nav-link" routerLink ="/Home"  routerLinkActive="activebutton"
+            ariaCurrentWhenActive="page">Home</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Forms" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Resume</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Connect" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Connect</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Forum" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">People</a>
+        </li>
+         <!-- <ng-container *ngIf="isLogoutDisplay === true">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/Connect" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}" [queryParams]="{logout:true}">Logout</a>
+          </li>
+         </ng-container> -->
+        
+      </ul>
+    </div>
+  </nav>

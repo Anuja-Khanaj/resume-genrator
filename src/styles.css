@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* background: rgba(151, 150, 150, 0.169); */
+}
+
+
+  /* Define scrollbar thumb */
+  /* body::-webkit-scrollbar-thumb { */
+    /* background-color: #888; Color of the scrollbar thumb */
+    /* border-radius: 10px; Radius of the scrollbar thumb */
+  /* } */
+  
+  
+  

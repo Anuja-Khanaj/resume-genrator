@@ -1,0 +1,8 @@
+label{
+    /* width: 0%; */
+    outline: solid 2px rgb(244, 213, 60);
+}
+
+.bg{
+    background-color:rgb(244, 213, 60);
+}

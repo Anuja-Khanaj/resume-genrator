@@ -1,0 +1,64 @@
+.center{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    
+}
+.form{
+    
+    border-radius: 2px;
+    background-color: rgba(150, 150, 150, 0.199);
+}
+
+.resume-container {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .resume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .resume {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .header h1 {
+    margin: 0;
+  }
+  
+  .header p {
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-info p {
+    margin: 5px 0;
+  }
+  
+  .content {
+    margin-top: 20px;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+  .section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .section ul {
+    padding-left: 20px;
+  }
+  
+  .section ul li {
+    margin-bottom: 5px;
+  }
+  

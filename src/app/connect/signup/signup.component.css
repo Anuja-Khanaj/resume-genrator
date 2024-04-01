@@ -1,0 +1,46 @@
+.signup-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    
+}
+/* 
+form{
+    padding: 1rem;
+    border:  rgba(187, 187, 187, 0.584) solid 3px;
+} */
+
+.left{
+    width: 100%;
+}
+.right{
+    display: flex;
+    gap: 4rem
+}
+
+.type-radio{
+    display: flex;
+    gap: 12px;
+}
+
+select{
+    width: 70%;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+img{
+    border-radius: 3px;
+    width: 50%;
+    height: auto;
+}
+
+small{
+    color: red;
+}
+
+input .ng-invalid{
+    border-color: red;
+}

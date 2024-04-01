@@ -1,0 +1,12 @@
+nav{
+    background: rgb(244, 213, 60);
+}
+
+li:hover :active{
+    background: white;
+    border-radius: 0.4rem;
+    transition:cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+

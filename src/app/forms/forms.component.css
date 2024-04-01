@@ -1,0 +1,16 @@
+small{
+    color: red;
+}
+
+input .ng-invalid{
+    border: solid 2px red;
+}
+
+input .ng-pending{
+    border: solid 2px red;
+}
+
+
+input .ng-touched{
+    border: solid 2px red;
+}

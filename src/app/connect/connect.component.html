@@ -1,0 +1,11 @@
+<div class="container my-5">
+<div class="d-flex btn-group "  >
+   <label [ngClass]="{'btn':true, 'bg':onLoginSelect}" (click)="OnClickLogin()">LOGIN</label>
+   <label [ngClass]="{'btn':true, 'bg':onSignUpSelect}" (click)="OnClickSignup()">Signup</label>
+</div>
+
+<div [ngSwitch]="tab">
+    <app-login *ngSwitchDefault="'login'" ></app-login>
+    <app-signup *ngSwitchCase="'signup'"></app-signup>
+</div>
+</div>
