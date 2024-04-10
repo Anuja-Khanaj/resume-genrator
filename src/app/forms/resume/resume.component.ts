@@ -14,14 +14,17 @@ export class ResumeComponent {
    data : Info[]       
   formservice:FormService = inject(FormService);
   router:Router = inject(Router)
+  loader:boolean = true;
 
   @Input() formData: any;
+
   ngOnInit(){
+    
     this.formservice.getData().subscribe({next:(data:Info[])=>{
       this.data = data
       // data.values()
     }})
-    
+    this.loader = true; 
   }
   @Output() displaybtn = new EventEmitter<boolean>();
   OnDownloadClick(){

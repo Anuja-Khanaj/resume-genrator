@@ -7,6 +7,7 @@ import { FormGroup } from '@angular/forms';
 import { Info } from '../Model/info';
 import {FormService} from '../Service/form.service'
 import { HttpClient } from '@angular/common/http';
+import { LocalstorageService } from '../Service/localstorage.service';
 
 @Component({
   selector: 'app-forms',
@@ -20,6 +21,7 @@ export class FormsComponent {
   reactiveForms : FormGroup 
   newexpgroup:FormGroup
   http:HttpClient = inject(HttpClient);
+  local:LocalstorageService =  inject(LocalstorageService);
 
   ngOnInit(){
     this.reactiveForms  = new FormGroup({
@@ -53,8 +55,7 @@ export class FormsComponent {
   OnFormSubmited(data:Info){
     this.formsdata = this.reactiveForms.value;
     console.log(this.formsdata)
-    // const formValues = this.reactiveForms.value;
-    this.formservice.formSubmit(this.reactiveForms.value);
+   this.formservice.formSubmit(this.reactiveForms.value);
     this.reactiveForms.reset() 
   }
 

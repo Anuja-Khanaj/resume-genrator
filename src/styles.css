@@ -5,11 +5,24 @@ body{
 }
 
 
-  /* Define scrollbar thumb */
-  /* body::-webkit-scrollbar-thumb { */
-    /* background-color: #888; Color of the scrollbar thumb */
-    /* border-radius: 10px; Radius of the scrollbar thumb */
-  /* } */
-  
+/* For WebKit-based browsers */
+::-webkit-scrollbar {
+  width: 5px; /* width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: black; /* color of the thumb on hover */
+}
+
+
   
   
