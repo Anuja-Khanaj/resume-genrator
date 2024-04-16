@@ -3,9 +3,9 @@
         <form action="" class="form form-group" [formGroup]="reactiveForm" onsubmit="event.preventDefault()">
             <div>
                 <div class="left">
-                    <label for="name">Name</label>
+                    <!-- <label for="name">Name</label>
                     <input type="text" class="form-control" ngModel  formControlName="name">
-                    <small *ngIf="reactiveForm.get('name').invalid && reactiveForm.get('name').touched"> *required field </small>
+                    <small *ngIf="reactiveForm.get('name').invalid && reactiveForm.get('name').touched"> *required field </small> -->
                     <br>
                     <label for="username">Username</label>
                     <input type="email" name="email" class="form-control" ngModel  formControlName="username">
@@ -15,22 +15,22 @@
                     <input type="password" name="pass" class="form-control" ngModel  formControlName="pass" #pass>
                     <small *ngIf="reactiveForm.get('pass').invalid && reactiveForm.get('pass').touched"> *required field </small>
                     <br>
-                    <label for="confirmPass">Confirm Password</label>
-                    <input type="password" name="confirmPass" class="form-control" ngModel  formControlName="confirmPass">
+                    <!-- <label for="confirmPass">Confirm Password</label>
+                    <input type="password" name="confirmPass" class="form-control" ngModel  formControlName="confirmPass"> -->
                     <br>
     
                 </div>
-                <div class="right">
+                <!-- <div class="right">
                     <div class="onee">
                         <label for="">Are you student?</label>
                         <br>
                         <div class="type-radio">
                             <div class="radio">
-                                <input type="radio" name="option" value="yes" ngModel  formControlName="student">
+                                <input type="radio" name="student" value="yes" ngModel  formControlName="student">
                                 <label type="radio" for="yes">Yes</label>
                             </div>
                             <div class="radio">
-                                <input type="radio" name="option" value="no" ngModel  formControlName="student">
+                                <input type="radio" name="student" value="no" ngModel  formControlName="student">
                                 <label type="radio" for="no">NO</label>
                             </div> 
                         </div> 
@@ -66,11 +66,11 @@
                     <br>
                     <div class="type-radio">
                         <div class="radio">
-                            <input type="radio" name="ha" value="ha" ngModel  formControlName="pervResume">
+                            <input type="radio" name="pervResume" value="ha" ngModel  formControlName="pervResume">
                             <label type="radio" for="yes" >Yes</label>
                         </div>
                         <div class="radio">
-                            <input type="radio" name="na" value="na" ngModel  formControlName="pervResume">
+                            <input type="radio" name="pervResume" value="ha" ngModel  formControlName="pervResume">
                             <label type="radio" for="no">NO</label>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                   </div>
                  
                    
-                </div>
+                </div> -->
                 <br>
                 <button class="btn btn-outline-primary" type="submit" (click)="OnSignSubmit(reactiveForm.value)" [disabled]="reactiveForm.invalid">Submit</button> 
                 <br>

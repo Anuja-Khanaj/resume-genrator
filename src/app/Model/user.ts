@@ -1,14 +1,16 @@
-
 export class User{
-    id:number;
-    username:string;
-    password:string;
-    
-    constructor(id:number, username:string, password:string){
-        this.id = id;
-        this.username = username;
-        this.password = password;
+    constructor(
+        public email: string,
+        public id: string,
+        private _token: string,
+        private _expiresIn: Date
+    ){
+        
+    }
+    get token(){
+        if(!this._expiresIn || this._expiresIn < new Date()){
+            return null;
+        }
+        return this._token;
     }
 }
-
-

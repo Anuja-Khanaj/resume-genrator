@@ -1,5 +1,8 @@
 import { Component, ElementRef, Output, ViewChild, inject } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthResponse } from 'src/app/Model/AuthResponse';
 import { Signup } from 'src/app/Model/Signup';
 import { User } from 'src/app/Model/user';
 import { AuthService } from 'src/app/Service/auth.service';
@@ -12,80 +15,31 @@ import { LoginService } from 'src/app/Service/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  @ViewChild('username') username: ElementRef;
-  @ViewChild('password') password: ElementRef;
-  data: Signup[]
-  
-  @Output() isLogin: boolean
+  reactiveforms : FormGroup;
+  authObs: Observable<AuthResponse>;
+  authService :AuthService = inject(AuthService);
+  router:Router = inject(Router);
 
-  router: Router = inject(Router)
-  loginservice:LoginService = inject(LoginService)
-  authService: AuthService = inject(AuthService);
-  activeRoute: ActivatedRoute = inject(ActivatedRoute)
-  // ngOnInit(){
-  //   this.activeRoute.queryParamMap.subscribe((queries)=>{
-  //     const logout = Boolean(queries.get('logout'));
-  //     if(logout){
-  //       this.authService.logout();
-  //       // alert('You are now logged out. IsLogged = ' + this.authService.isLogin);
-  //     }
-  //   })
-
-  // }
-  // OnLoginClicked(){
-  //   const username = this.username.nativeElement.value
-  //   const password = this.password.nativeElement.value
-  //   const user = this.authService.login(username,password)
-
-  //  if(user === undefined){
-  //   alert('The login credentials you have entered is not correct.')
-  // }
-  // else{
-  //   alert('Welcome. You are logged in.');
-  //   this.router.navigate(['\Resume']);
-  // }
-  // }
-
-  ngOnInit() {
-  
+  ngOnInit(){
+    this.reactiveforms = new FormGroup({
+      username : new FormControl(null,Validators.required),
+      password:new FormControl(null, Validators.required)
+    })
   }
 
-//   OnLoginClicked(event) {
-//     event.preventDefault();
-//     const username = this.username.nativeElement.value
-//     const password = this.password.nativeElement.value
-//     this.loginservice.getData().subscribe({
-//       next: (data) => {
-//         this.data = data
-//       }
-//     })
-    
-//    if(this.data.includes(username)  && this.data.includes(password)  ){
-//     alert("login successful")
-//  }else{
-//   console.log(this.data.includes(username));
-//   alert('change the crentials')
-// }
+  OnformSubmitted(){
+    const { username, password } = this.reactiveforms.value;
+      this.authObs =  this.authService.login(username,password);
+      this.authObs.subscribe({
+        next:(res)=>{
+          console.log("submitted");
+          this.router.navigate(["../forms"]);
+        },error:(errMsg)=>{
+          console.log(errMsg);
+        }
+      })
+      this.reactiveforms.reset();
+  }
 
-// }
-
-OnLoginClicked(event) {
-  const usernamefromfield = this.username.nativeElement.value
-      const passwordfromfiled = this.password.nativeElement.value
-  event.preventDefault();
-
-  this.loginservice.getData().subscribe((card:Signup[]) => {
-    if (!Array.isArray(card)) {
-      console.error('Data is not an array');
-      return; 
-    }
-    this.data = card;
-    if(this.data.find(user => user.username === usernamefromfield)){
-      alert('hi')
-    }
-    else{
-      alert('miii')
-    }
-  })
-}
+  
 }
