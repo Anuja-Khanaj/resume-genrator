@@ -11,20 +11,20 @@
             <a class="nav-link" routerLink ="/Home"  routerLinkActive="activebutton"
             ariaCurrentWhenActive="page">Home</a>
           </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link" routerLink="/Forms" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Resume</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isLoggedIn">
           <a class="nav-link" routerLink="/Connect" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Connect</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/Forum" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">People</a>
         </li>
-         <!-- <ng-container *ngIf="isLogoutDisplay === true">
+         <ng-container *ngIf="isLoggedIn">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/Connect" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}" [queryParams]="{logout:true}">Logout</a>
+            <a class="nav-link" (click)="onLogout()" [routerLinkActive]="'active'">Logout</a>
           </li>
-         </ng-container> -->
+         </ng-container>
         
       </ul>
     </div>

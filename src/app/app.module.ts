@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,10 +13,11 @@ import { Router, RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { ResumeComponent } from './forms/resume/resume.component';
 import { ConnectComponent } from './connect/connect.component';
 import { FormService } from "./Service/form.service";
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ForumComponent } from './forum/forum.component';
-
-
+import { LoggingInterceptorService } from './Service/logging-interceptor';
+import { AuthInterceptorService } from './Service/auth-interceptor.service';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { ForumComponent } from './forum/forum.component';
     ResumeComponent,
     ConnectComponent,
     ForumComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +41,10 @@ import { ForumComponent } from './forum/forum.component';
     RouterOutlet,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

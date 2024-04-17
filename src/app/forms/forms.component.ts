@@ -55,7 +55,9 @@ export class FormsComponent {
   OnFormSubmited(data:Info){
     this.formsdata = this.reactiveForms.value;
     console.log(this.formsdata)
-   this.formservice.formSubmit(this.reactiveForms.value);
+    this.formservice.formSubmit(this.reactiveForms.value);
+    const formData = JSON.stringify(this.reactiveForms.value);
+    localStorage.setItem('formData', formData);
     this.reactiveForms.reset() 
   }
 

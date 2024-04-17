@@ -1,5 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../Service/auth.service';
+import { Subscription } from 'rxjs';
+import { User } from '../Model/user';
 
 @Component({
   selector: 'app-navbar',
@@ -8,11 +10,22 @@ import { AuthService } from '../Service/auth.service';
 })
 export class NavbarComponent {
 authservice :AuthService = inject(AuthService)
+private userSubject :Subscription;
+isLoggedIn:boolean
 
-isLogoutDisplay:boolean
+ngOnInit(){
+this.userSubject =  this.authservice.user.subscribe((user:User)=>{
+  console.log(user);
+  this.isLoggedIn = user?true:false;
+});
+}
 
-// ngOnInit(){
-//   this.isLogoutDisplay = this.authservice.isAuthenticated()
-// }
+onLogout(){
+  this.authservice.logout();
+  localStorage.clear();
+}
 
+ngOnDestroy(){
+  this.userSubject.unsubscribe();
+}
 }

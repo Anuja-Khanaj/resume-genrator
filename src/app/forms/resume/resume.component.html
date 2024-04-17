@@ -6,18 +6,18 @@
   <div class="spinner-border" *ngIf="!loader" role="status">
     <span class="sr-only">Loading...</span>
   </div>
-  <div class=" p-2 m-2 " *ngFor="let item of data">
+  <div class=" p-2 m-2 ">
 
-    <div class="container" style="width: 70%;">
+    <div class="container" #pdfContent style="width: 70%;">
       <div class="row justify-content-center ">
         <div class="col-md-8 form">
           <div class="resume-section">
-            <h2 class="text-center mb-2">{{item.fname}} {{item.lname}} </h2>
+            <h2 class="text-center mb-2">{{ formData.fname }} {{formData.lname}} </h2>
 
-            <p class="text-center">{{item.job}}</p>
+            <p class="text-center">{{formData.job}}</p>
             <div class="center">
-              <p>Email: {{item.linAcc}} </p>
-              <p>Phone: {{item.gitAcc}} </p>
+              <p>Email: {{formData.linAcc}} </p>
+              <p>Phone: {{formData.gitAcc}} </p>
             </div>
             <hr>
             <div class="resume-item">
@@ -27,7 +27,7 @@
             <div class="resume-item">
               <h4>Experience</h4>
               <p>Responsibilities:</p>
-              <ul *ngFor="let item2 of item.exp">
+              <ul *ngFor="let item2 of formData.exp">
                 <li>{{item2.compTitle}} </li>
                 <li>{{item2.certificate}}</li>
                 <li>{{item2.compName}}</li>
@@ -36,13 +36,13 @@
             <div class="resume-item">
               <h4>Skills</h4>
               <ul>
-                <li>{{item.skills}} </li>
+                <li>{{formData.skills}} </li>
               </ul>
             </div>
             <div class="resume-item">
               <h4>Contact</h4>
-              <p>Email: {{item.email}} </p>
-              <p>Phone: {{item.mob}} </p>
+              <p>Email: {{formData.email}} </p>
+              <p>Phone: {{formData.mob}} </p>
             </div>
           </div>
         </div>
@@ -51,8 +51,8 @@
   </div>
  <ng-container *ngIf="!display" >
   <div class="change d-flex autofill"  >
-    <a routerLink="/Form" class="btn btn-primary"> Update</a>
-    <a (click)="OnDownloadClick()"  class="btn btn-primary">Download</a>
+    <!-- <a routerLink="/Form" class="btn btn-primary"> Update</a> -->
+    <button (click)="downloadFile()">Download File</button>
   </div>
  </ng-container>
 </div>

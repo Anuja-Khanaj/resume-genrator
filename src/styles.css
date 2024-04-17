@@ -2,6 +2,7 @@
 body{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     /* background: rgba(151, 150, 150, 0.169); */
+    overflow-x: hidden  ;
 }
 
 

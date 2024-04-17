@@ -1,0 +1,94 @@
+
+<h1 class="text-center my-5">
+    Fill the Information
+</h1>
+<div class="d-flex my-4 p-3 container" style="gap: 7px;">
+    <div class="signup-form">
+        <form action="" class="form form-group"  [formGroup]="reactiveForms" >
+            <div>
+                <div class="left">
+                    <label for="name">Name <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control"   formControlName="name" required>
+                    <small *ngIf="reactiveForms.get('name').invalid && reactiveForms.get('name').touched"> *required field </small>
+                    <br>
+                    <label for="email">email<span style="color: red;">*</span></label>
+                    <input type="email" name="email" class="form-control"   formControlName="email" required>
+                    <small *ngIf="reactiveForms.get('email').invalid && reactiveForms.get('email').touched"> *required field </small>
+                    <br>
+                    <label for="name">Phone number <span style="color: red;">*</span></label>
+                    <input type="tel" class="form-control"   formControlName="phoneNo" required>
+                    <small *ngIf="reactiveForms.get('phoneNo').errors?.['maxlength']">must contain 10 number</small>
+                    <small *ngIf="reactiveForms.get('phoneNo').invalid && reactiveForms.get('phoneNo').touched"> Invalid Phone Number </small>
+                    <br>
+    
+                </div>
+              <div class="right">
+                    <div class="onee">
+                        <label for="">Are you student?<span style="color: red;">*</span></label>
+                        <br>
+                        <div class="type-radio">
+                            <div class="radio">
+                                <input type="radio" name="student" value="yes"   formControlName="student">
+                                <label type="radio" for="yes">Yes</label>
+                            </div>
+                            
+                            <div class="radio">
+                                <input type="radio" name="student" value="no"   formControlName="student">
+                                <label type="radio" for="no">NO</label>
+                            </div> 
+                        </div> 
+                        <small *ngIf="reactiveForms.get('student').invalid && reactiveForms.get('student').touched"> *required field </small>
+                        <br>              
+                        <div class="dropdown">
+                            <label for="country"> In Which Country you're looking for a job?<span style="color: red;">*</span></label>
+                            <br>
+                            <select name="country"   formControlName="country">
+                                <option value="selectCoun" selected>Select</option>
+                                <option value="india">India</option>
+                                <option value="us">Us</option>
+                                <option value="germany">Germany</option>
+                                <option value="france">France</option>
+                            </select>
+                        </div>
+                        <small *ngIf="reactiveForms.get('country').invalid && reactiveForms.get('country').touched"> *required field </small>
+                    </div>
+                  <div class="two">
+                    <div class="dropdown">
+                        <label for="media"> In Which Country you're looking for a job?<span style="color: red;">*</span></label>
+                        <br>
+                        <select name="media"   formControlName="media">
+                            <option value="selectCoun" selected>Select</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Friend">Friend</option>
+                            
+                        </select>
+                    </div>
+                    <small *ngIf="reactiveForms.get('media').invalid && reactiveForms.get('media').touched"> *required field </small>
+                    <br>
+                   <label for="">Have you ever made resume?<span style="color: red;">*</span></label>
+                    <br>
+                    <div class="type-radio">
+                        <div class="radio">
+                            <input type="radio" name="pervResume" value="yes"   formControlName="pervResume">
+                            <label type="radio" for="yes" >Yes</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="pervResume" value="no"   formControlName="pervResume">
+                            <label type="radio" for="no">NO</label>
+                        </div>
+                    </div>
+                    <small *ngIf="reactiveForms.get('pervResume').invalid && reactiveForms.get('pervResume').touched"> *required field </small>
+                  </div>
+                 
+                   
+                </div>
+                <br>
+                <button class="btn btn-outline-primary" type="submit" (click)="onSubmit(reactiveForms.value)" >Submit</button> 
+                <br>
+                
+            </div>
+        </form>
+    </div>
+
+    <img src="../../../assets/two.png" alt="" srcset="">
+</div>

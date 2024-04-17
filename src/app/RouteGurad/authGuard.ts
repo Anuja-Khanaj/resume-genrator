@@ -7,8 +7,7 @@ import { AuthService } from "../Service/auth.service";
 
 export const canActivate = (
     router: ActivatedRouteSnapshot, 
-    state: RouterStateSnapshot
-): boolean | UrlTree |Promise<boolean | UrlTree> | Observable<boolean | UrlTree> => {
+    state: RouterStateSnapshot): boolean | UrlTree |Promise<boolean | UrlTree> | Observable<boolean | UrlTree> => {
     const authService = inject(AuthService);
     const route = inject(Router);
 

@@ -19,7 +19,7 @@ export class AuthService{
         const data = {email: email, password: password, returnSecureToken: true};
         return this.http.post<AuthResponse>
             (
-                'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBFWOuZvFUIY9gedIESEY3DYZn8XCYS6kg8', 
+                'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBFWOuZvFUIY9gedIESEY3DYZn8XCYS6kg', 
                 data
             ).pipe(catchError(this.handleError), tap((res) => {
                 this.handleCreateUser(res)
@@ -38,7 +38,7 @@ export class AuthService{
 
     logout(){
         this.user.next(null);
-        this.router.navigate(['/login']);
+        this.router.navigate(['/Login']);
         localStorage.removeItem('user');
 
         if(this.tokenExpiretimer){
@@ -46,8 +46,7 @@ export class AuthService{
         }
         this.tokenExpiretimer = null;
     }
-
-    autoLogin(){
+      autoLogin(){
         const user = JSON.parse(localStorage.getItem('user'));
 
         if(!user){

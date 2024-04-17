@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Info } from 'src/app/Model/info';
+import { FileDownloadService } from 'src/app/Service/file-download.service';
 import { FormService } from 'src/app/Service/form.service';
 
 @Component({
@@ -15,30 +16,22 @@ export class ResumeComponent {
   formservice:FormService = inject(FormService);
   router:Router = inject(Router)
   loader:boolean = true;
+  formData: any;
+  isLoggedIn :boolean = true;
 
-  @Input() formData: any;
-
-  ngOnInit(){
+  constructor( private fileDownloadService: FileDownloadService) {
+    const serializedFormData = localStorage.getItem('formData');
+    if (serializedFormData) {
+      this.formData = JSON.parse(serializedFormData);
+    }
     
-    this.formservice.getData().subscribe({next:(data:Info[])=>{
-      this.data = data
-      // data.values()
-    }})
-    this.loader = true; 
-  }
-  @Output() displaybtn = new EventEmitter<boolean>();
-  OnDownloadClick(){
-
-   
-    alert('After Downloading you resume will be reset. Are you sure to download')
-    this.router.navigate(['/Forms'])
-    this.displaybtn.emit(true)
-    this.formservice.deleteData()
- 
   }
 
-  onUpdateClicked(){
+  @ViewChild('pdfContent') pdfContent: ElementRef;
+
+  downloadFile() {
+    this.fileDownloadService.generatePdf(this.pdfContent.nativeElement, 'my_component.pdf');
 
   }
-  
 }
+

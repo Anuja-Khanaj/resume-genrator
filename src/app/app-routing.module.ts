@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { ResumeComponent } from './forms/resume/resume.component';
 import { ConnectComponent } from './connect/connect.component';
 import { ForumComponent } from './forum/forum.component';
+import { canActivate } from './RouteGurad/authGuard';
+import { InfoComponent } from './info/info.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -14,9 +16,11 @@ const routes: Routes = [
   {path:'Connect', component:ConnectComponent},
   {path:'Login',component:LoginComponent},
   {path:'Signup',component:SignupComponent},
-  {path:'Forms',component:FormsComponent},
-   {path:'Resume',component: ResumeComponent},
-   {path:'Forum',component: ForumComponent}
+  {path:'Forms',component:FormsComponent ,canActivate: [canActivate]},
+   {path:'Resume',component: ResumeComponent ,canActivate: [canActivate]},
+   {path:'Forum',component: ForumComponent},
+   {path:'Info',component: InfoComponent,canActivate: [canActivate]}
+
 ];
 
 @NgModule({

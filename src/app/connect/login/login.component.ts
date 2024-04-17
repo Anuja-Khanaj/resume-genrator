@@ -22,18 +22,18 @@ export class LoginComponent {
 
   ngOnInit(){
     this.reactiveforms = new FormGroup({
-      username : new FormControl(null,Validators.required),
+      email : new FormControl(null,Validators.required),
       password:new FormControl(null, Validators.required)
     })
   }
 
   OnformSubmitted(){
-    const { username, password } = this.reactiveforms.value;
-      this.authObs =  this.authService.login(username,password);
+    const { email, password } = this.reactiveforms.value;
+      this.authObs =  this.authService.login(email,password);
       this.authObs.subscribe({
         next:(res)=>{
           console.log("submitted");
-          this.router.navigate(["../forms"]);
+          this.router.navigate(["/Forms"]);
         },error:(errMsg)=>{
           console.log(errMsg);
         }

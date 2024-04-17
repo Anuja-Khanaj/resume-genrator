@@ -22,32 +22,34 @@ export class SignupComponent {
   loginService : LoginService = inject(LoginService)
   ngOnInit(){
     this.reactiveForm = new FormGroup({
-      // name:new FormControl('',Validators.required),
-      username:new FormControl('',[Validators.email,Validators.required]),
-      pass:new FormControl('',Validators.required),
-      // confirmPass:new FormControl('',Validators.required),
-      // student: new FormControl('',Validators.required),
-      // country:new FormControl('',Validators.required),
-      // media: new FormControl('',Validators.required),
-      // pervResume:new FormControl('',Validators.required)
+      email:new FormControl('',[Validators.email,Validators.required]),
+      password:new FormControl('',Validators.required),
+      confirmPass:new FormControl('',Validators.required),
     })
   }
 
-  OnSignSubmit(data:Signup){
-    console.log('SignUp Clicked')
-      const { username, password } = this.reactiveForm.value;
-        this.authObs =  this.authService.signup(username,password);
-        this.authObs.subscribe({
-          next:(res)=>{
-            console.log("submitted");
-            this.router.navigate(["../forms"]);
-          },error:(errMsg)=>{
-            console.log(errMsg);
+  onSubmit(data: Signup) {
+    if(this.reactiveForm.value.password == this.reactiveForm.value.confirmPass){
+      console.log('SignUp Clicked');
+      const email = this.reactiveForm.value.email ; // Extracting email and password from the form
+      const password = this.reactiveForm.value.password
+      this.authObs = this.authService.signup(email, password); // Calling authService to sign up with provided email and password
+      this.authObs.subscribe({
+          next: (res) => { // Handling successful response
+              console.log("submitted");
+              this.router.navigate(["/Info"]); // Navigating to forms page after successful signup
+          },
+          error: (errMsg) => { // Handling error response
+              console.log(errMsg); // Logging the error message
           }
-        })
-        this.reactiveForm.reset();
+      });
+      this.reactiveForm.reset(); // Resetting the form after submission
     }
-  
+    else{
+      alert('password not same')
+    }
+}
+
 
   OnSubmitCliked(data:User[]){
      
