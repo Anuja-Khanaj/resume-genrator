@@ -1,0 +1,8 @@
+<div class="carousel-div">
+    <div class="slide" *ngFor="let slide of slides; let i = index" >
+      <h2>{{ slide.username}}</h2>
+      <p>{{ slide.mgs }}</p>
+    </div>
+  </div>
+  <button (click)="prevSlide()">Previous</button>
+  <button (click)="nextSlide()">Next</button>

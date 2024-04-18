@@ -59,6 +59,7 @@ export class AuthService{
             this.user.next(loggedUser);
             const timerValue = user._expiresIn.getTime() - new Date().getTime();
             this.autoLogout(timerValue);
+            localStorage.clear();
         }
     }
 

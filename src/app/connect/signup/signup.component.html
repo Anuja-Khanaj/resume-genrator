@@ -1,22 +1,24 @@
 <div class="d-flex my-4" style="gap: 7px;">
+    
     <div class="signup-form">
         <form action="" class="form form-group"  [formGroup]="reactiveForm" >
+            <h2 class="" style="border-bottom: solid black 2px;">Enter your creadentials </h2>
             <div>
                 <div class="left">
                     <!-- <label for="name">Name</label>
                     <input type="text" class="form-control"   formControlName="name">
                     <small *ngIf="reactiveForm.get('name').invalid && reactiveForm.get('name').touched"> *required field </small> -->
                     <br>
-                    <label for="email">email</label>
-                    <input type="email" name="email" class="form-control"   formControlName="email">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter your email" name="email" class="form-control"   formControlName="email">
                     <small *ngIf="reactiveForm.get('email').invalid && reactiveForm.get('email').touched"> *required field </small>
                     <br>
                     <label for="pass">Password</label>
-                    <input type="password" name="password" class="form-control"   formControlName="password" #pass>
+                    <input type="password" placeholder="Enter password" name="password" class="form-control"   formControlName="password" #pass>
                     <small *ngIf="reactiveForm.get('password').touched"> *required field </small>
                     <br>
                     <label for="confirmPass">Confirm Password</label>
-                    <input type="password" name="confirmPass" class="form-control"   formControlName="confirmPass">
+                    <input type="password" placeholder="Renter password" name="confirmPass" class="form-control"   formControlName="confirmPass">
                     <br>
     
                 </div>

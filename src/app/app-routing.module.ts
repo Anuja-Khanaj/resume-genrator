@@ -13,12 +13,12 @@ import { InfoComponent } from './info/info.component';
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'Home',component:HomeComponent},
+  {path:'Forum',component: ForumComponent,canActivate: [canActivate]},
   {path:'Connect', component:ConnectComponent},
   {path:'Login',component:LoginComponent},
   {path:'Signup',component:SignupComponent},
   {path:'Forms',component:FormsComponent ,canActivate: [canActivate]},
    {path:'Resume',component: ResumeComponent ,canActivate: [canActivate]},
-   {path:'Forum',component: ForumComponent},
    {path:'Info',component: InfoComponent,canActivate: [canActivate]}
 
 ];

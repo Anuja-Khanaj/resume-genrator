@@ -18,6 +18,7 @@ import { ForumComponent } from './forum/forum.component';
 import { LoggingInterceptorService } from './Service/logging-interceptor';
 import { AuthInterceptorService } from './Service/auth-interceptor.service';
 import { InfoComponent } from './info/info.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { InfoComponent } from './info/info.component';
     ConnectComponent,
     ForumComponent,
     InfoComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,

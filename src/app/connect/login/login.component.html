@@ -1,6 +1,6 @@
 <div class=" container d-flex justify-content-center  " style="align-items: center; margin-bottom: 6.5rem;">
     <div class="left p-2" >
-        <h1>Login Here to Access Service</h1>
+        <h1 class="mb-4" style="border-bottom: solid black 2px;">Login Here to Access Service</h1>
         <form [formGroup]="reactiveforms" (ngSubmit)="OnformSubmitted()" >
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
@@ -12,7 +12,7 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" >
             </div>
-            <button type="submit" class="btn btn-primary m-2" >Submit</button>
+            <button type="submit" class="btn btn-outline-primary my-3" >Submit</button>
             <br>
             <small>Already have account ?</small> <a routerLink="/Signup"> Signup</a>
         </form>

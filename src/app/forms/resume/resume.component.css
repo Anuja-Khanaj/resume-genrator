@@ -61,4 +61,14 @@
   .section ul li {
     margin-bottom: 5px;
   }
-  
+
+  .btn{
+    background-color:  rgb(244, 213, 60);
+    
+  }
+
+  .change{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+  }

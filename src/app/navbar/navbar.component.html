@@ -17,7 +17,7 @@
         <li class="nav-item" *ngIf="!isLoggedIn">
           <a class="nav-link" routerLink="/Connect" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Connect</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item"*ngIf="isLoggedIn">
           <a class="nav-link" routerLink="/Forum" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">People</a>
         </li>
          <ng-container *ngIf="isLoggedIn">
