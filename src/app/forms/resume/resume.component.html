@@ -20,9 +20,12 @@
               <p>Phone: {{formData.gitAcc}} </p>
             </div>
             <hr>
-            <div class="resume-item">
+            <div class="resume-item" *ngIf="formData.education">
               <h4>Education</h4>
-              <p>Bachelor of Science in Computer Science - XYZ University (Year)</p>
+              <ng-container *ngFor="let item of formData.education">
+
+                <p>{{item.sclName}} - {{item.degree}} ({{item.startYear}}-{{item.endYear}})</p>
+              </ng-container>
             </div>
             <div class="resume-item">
               <h4>Experience</h4>
@@ -44,6 +47,12 @@
               <p>Email: {{formData.email}} </p>
               <p>Phone: {{formData.mob}} </p>
             </div>
+            <div class="taining" *ngIf="formData.training" >
+              <h1>Certificates</h1>
+              <ng-container *ngFor="let item of formData.training">
+              <p>{{item.courseName}} By {{item.courseUni}}</p></ng-container>
+
+            </div>
           </div>
         </div>
       </div>
@@ -56,3 +65,4 @@
   </div>
  </ng-container>
 </div>
+

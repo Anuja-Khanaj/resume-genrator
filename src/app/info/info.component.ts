@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserInfo } from '../Model/userinfo';
 import { UserInfoService } from '../Service/user-info.service';
@@ -12,7 +12,7 @@ import { Router, Routes } from '@angular/router';
 export class InfoComponent implements OnInit {
   reactiveForms: FormGroup;
   data: UserInfo;
-  router:Router;
+  router:Router = inject(Router);
   constructor(private userService: UserInfoService) {} // Injecting UserInfoService
 
   ngOnInit() {
@@ -32,5 +32,6 @@ export class InfoComponent implements OnInit {
   onSubmit(data) {
     this.userService.submitdata(data);
     this.router.navigate['/Forms']
+    this.reactiveForms.reset();
   }
 }

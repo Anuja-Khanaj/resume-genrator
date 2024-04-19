@@ -11,7 +11,5 @@ export class Exp{
               this.certificate = certificate;
               this.compName = compName;
               this.compTitle = compTitle;
-             
-  
       }
   }

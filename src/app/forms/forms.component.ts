@@ -38,6 +38,12 @@ export class FormsComponent {
         new FormControl(null),
     ]),
       exp: new FormArray([
+      ]),
+      education: new FormArray([
+
+      ]),
+      training:new FormArray([
+
       ])
     })
      
@@ -81,6 +87,34 @@ export class FormsComponent {
   OnDeleteExp(id){
     (<FormArray>this.reactiveForms.get('exp')).removeAt(id)
   }
+
  
+
+  OnAddEdu(){
+    const neweduGrp = new FormGroup(
+      {
+        sclName:new FormControl(null),
+      degree: new FormControl(null),
+      startYear:new FormControl(null),
+      endYear:new FormControl(null)
+    });
+   ( <FormArray>this.reactiveForms.get('education')).push(neweduGrp);
+  }
+ 
+  OnDeleteEdu(index){
+    (<FormArray>this.reactiveForms.get('education')).removeAt(index);
+  }
+
+  OnAddCertificates(){
+    const newcertgrp  =  new FormGroup({
+      courseName:new FormControl(null),
+      courseUni: new FormControl(null)
+    });
+    (<FormArray>this.reactiveForms.get('training')).push(newcertgrp);
+  }
+
+  OnDeleteCertificate(index){
+    (<FormArray>this.reactiveForms.get('training')).removeAt(index);
+  }
 }
 

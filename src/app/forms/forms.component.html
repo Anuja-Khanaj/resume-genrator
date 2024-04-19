@@ -45,14 +45,14 @@
 
                         <div class="row justify-content-between text-left">
                             <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3"> Linked In account <span class="text-danger"> *</span></label> 
-                                <input type="text" id="email" ngModel formControlName="linAcc" placeholder="">
+                                <input type="text" id="linkedIn" ngModel formControlName="linAcc" placeholder="">
                                 <small *ngIf="reactiveForms.get('linAcc').invalid && reactiveForms.get('linAcc').touched">must add linkedIn account</small>
                             </div>
                             <div class="form-group col-sm-6 flex-column d-flex">
                                  <label class="form-control-label px-3">Github Account<span class="text-danger">
                                         *</span>
                                 </label>
-                                <input type="text" id="mob" ngModel formControlName="gitAcc" placeholder="">
+                                <input type="text" id="git" ngModel formControlName="gitAcc" placeholder="">
                                 <small *ngIf="reactiveForms.get('gitAcc').invalid && reactiveForms.get('gitAcc').touched">must add git account</small>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                             <div class="form-group col-12 flex-column d-flex">
                                  <label class="form-control-label px-3">What do you think about yourelf? :<span
                                         class="text-danger"> *</span></label> 
-                                    <textarea ngModel formControlName="profile" id="" cols="30" rows="4"></textarea>
+                                    <textarea ngModel formControlName="profile"  cols="30" rows="4"></textarea>
                                     <small *ngIf="reactiveForms.get('profile').invalid && reactiveForms.get('profile').touched">*Add atleast 2 lines </small>
                                  </div>
                         </div>
@@ -72,7 +72,7 @@
                             </div>
                             <div class="form-group col-sm-6 flex-column d-flex"> <label
                                     class="form-control-label px-3">Location<span class="text-danger"></span></label>
-                                <input type="text" id="mob" ngModel formControlName="location" placeholder="">
+                                <input type="text"  ngModel formControlName="location" placeholder="">
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                                 <label class="form-control-label px-3">Your Technical skills {{ i+1}} </label>
                                 <button type="button" class="btn btn-dark" (click)="OnDeleteSkill(i)">Delete</button>
                             </div>
-                            <textarea [formControlName]="i" id="" cols="30" rows="2"></textarea>
+                            <textarea [formControlName]="i"  cols="30" rows="2"></textarea>
                         </div>
 
                     </div>
@@ -104,18 +104,18 @@
                                     <div class="form-group col-sm-6 flex-column d-flex"> <label
                                             class="form-control-label px-3">Company Name <span class="text-danger">
                                                 *</span></label>
-                                        <input type="text" id="fname" ngModel formControlName="compName">
+                                        <input type="text"  ngModel formControlName="compName">
                                     </div>
                                     <div class="form-group col-sm-6 flex-column d-flex">
                                         <label class="form-control-label px-3">Title</label>
-                                        <input type="text" id="lname" ngModel formControlName="compTitle">
+                                        <input type="text"  ngModel formControlName="compTitle">
                                     </div>
                                 </div>
                                 <div class="row justify-content-between text-left mt-2">
                                     <div class="form-group col-12 flex-column d-flex">
                                         <label class="form-control-label px-3">Which of your achecivements match job
                                             you're applying to? :</label>
-                                        <textarea ngModel formControlName="certificate" id="" cols="30"
+                                        <textarea ngModel formControlName="certificate"  cols="30"
                                             rows="4"></textarea>
                                     </div>
                                 </div>
@@ -125,62 +125,64 @@
                         </div>
                     </div>
                     <button type="button" class=" btn btn-danger m-4" (click)="OnAddExp()"> Add Exprience </button>
-                    <!-- 
-                    Education
-                    <div class="education border border-2 rounded-1  p-2" formArrayName="education">
+                    
+                    <!-- Education -->
+                    <div class="education border border-2 rounded-1  p-2" formArrayName="education" >
                         <h2 class="text-center"> Education</h2>
-                        <div class="edu">
+                        <div class="edu"  *ngFor="let edu of reactiveForms.get('education')['controls']; let i = index"
+                        [formGroupName]="i">
                             <div class="row  ">
                                 <div class="form-group col-sm-6 flex-column d-flex"> <label
                                         class="form-control-label px-3"> School or University </label>
-                                    <input type="text" id="fname" ngModel  formControlName = "sclName" 
+                                    <input type="text"  ngModel  formControlName = "sclName" 
                                         > 
                                 </div>
                                 <div class="form-group col-sm-6 flex-column d-flex">
                                      <label class="form-control-label px-3">Degree or Field of study</label> 
-                                    <input type="text" id="lname"ngModel  formControlName = "degree"> 
+                                    <input type="text" ngModel  formControlName = "degree"> 
                                 </div>     
                             </div>
                             <div class="row  ">
                                 <div class="form-group col-sm-6 flex-column d-flex"> 
                                     <label
                                         class="form-control-label px-3">Start Year</label>
-                                    <input type="date" id="fname" ngModel  formControlName = "startYear" 
+                                    <input type="date"  ngModel  formControlName = "startYear" 
                                         >
                                  </div>
                                 <div class="form-group col-sm-6 flex-column d-flex">
                                      <label class="form-control-label px-3">End Year</label> 
-                                    <input type="Date" id="lname"ngModel  formControlName = "endYear"> 
+                                    <input type="Date" ngModel  formControlName = "endYear"> 
                                 </div>     
                             </div>
                            
-                            <button type="button" class="btn btn-dark form-group col-sm-6 m-3">Delete</button>
+                            <button type="button" class="btn btn-dark form-group col-sm-6 m-3" (click)="OnDeleteEdu(i)">Delete</button>
                         </div>
                     </div>
-                    <button type="button" class=" btn btn-danger m-4 "> Add Education </button>
+                    <button type="button" class=" btn btn-danger m-4 " (click)="OnAddEdu()"> Add Education </button>
 
-                      Training and courses
+                      <!-- Training and courses -->
                       <div class="courses border border-2 rounded-1  p-2" formArrayName="training">
                         <h2 class="text-center"> Training and courses</h2>
-                        <div class="edu">
+                        <div class="edu"  *ngFor="let train of reactiveForms.get('training')['controls']; let i = index"
+                        [formGroupName]="i">
                             <div class="row  ">
                                 <div class="form-group col-sm-6 flex-column d-flex"> 
                                     <label
                                         class="form-control-label px-3"> 1. Name Of Course  </label>
-                                    <input type="text" id="fname" ngModel  formControlName = "courseName" placeholder="Name Of Course"
+                                    <input type="text"  ngModel  formControlName = "courseName" placeholder="Name Of Course"
                                         > 
                                 </div>
                                 <div class="form-group col-sm-6 flex-column d-flex">
                                      <label class="form-control-label px-3">University provided</label> 
-                                    <input type="text" id="lname"ngModel  formControlName = "courseUni" > 
+                                    <input type="text" ngModel  formControlName = "courseUni" > 
                                 </div>     
                             </div>
                            
                            
-                            <button type="button" class="btn btn-dark form-group col-sm-6 m-3">Delete</button>
+                            <button type="button" class="btn btn-dark form-group col-sm-6 m-3" (click)="OnDeleteCertificate(i)">Delete</button>
                         </div>
                     </div>
-                    <button type="button" class=" btn btn-danger m-4 "> Add Education </button> -->
+                    <button type="button" (click)="OnAddCertificates()" class=" btn btn-danger m-4 "> Add Education </button>
 
 
                     <!-- Submit button -->

@@ -15,7 +15,7 @@
                     <input type="email" name="email" class="form-control"   formControlName="email" required>
                     <small *ngIf="reactiveForms.get('email').invalid && reactiveForms.get('email').touched"> *required field </small>
                     <br>
-                    <label for="name">Phone number <span style="color: red;">*</span></label>
+                    <label for="tel">Phone number <span style="color: red;">*</span></label>
                     <input type="tel" class="form-control"   formControlName="phoneNo" required>
                     <small *ngIf="reactiveForms.get('phoneNo').errors?.['maxlength']">must contain 10 number</small>
                     <small *ngIf="reactiveForms.get('phoneNo').invalid && reactiveForms.get('phoneNo').touched"> Invalid Phone Number </small>
@@ -89,6 +89,6 @@
             </div>
         </form>
     </div>
-
     <img src="../../../assets/two.png" alt="" srcset="">
 </div>
+<router-outlet></router-outlet>
